@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'head/termycond'
+
+  get 'head/info'
+
+  get 'head/pregyresp'
+
   get 'home/index'
 
   get 'home/details'
