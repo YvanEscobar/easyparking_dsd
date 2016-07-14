@@ -1,0 +1,34 @@
+<!--
+<h1>Booking#index</h1>
+<p>Find me in app/views/booking/index.html.erb</p>
+-->
+<p>
+    <div class="container">
+        <h2>Reserva de espacio</h2>
+        <table class="table table-striped">
+            <thead>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Espacios</th>
+                <th>Precio</th>
+            </thead>
+            <tbody>
+                <form class="form-inline">
+                <td><%= image_tag 'parking', size: "64", class: "img-thumbnail" %></td>
+                <td>Cochera en San Isidro</td>
+                <td><input type="number" class="form-control" size="2" value="1"></td>
+                <td>S/. 7.00</td>
+                </form>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <h3>Forma de pago</h3>
+        <form>
+        <ul style="list-linline">
+            <li><label><input type="radio" name="formapago" value="efectivo">Efectivo</label></li>
+            <li><label><input type="radio" name="formapago" value="tarjeta">Tarjeta de crédito/débito</label></li>
+        </ul>
+        </form>
+    </div>
+</p>
