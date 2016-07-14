@@ -1,11 +1,11 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-inverse">
   <div class="container">
     <%= link_to "EASYPARKING", '#', id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Inicio",   '#' %></li>
-        <li><%= link_to "Ayuda",   '#' %></li>
-        <li><%= link_to "Ingresar", '#' %></li>
+        <li><%= link_to "Inicio", home_index_path %></li>
+        <li><%= link_to "Ayuda", '#' %></li>
+        <li><%= link_to "Ingresar", user_login_path %></li>
       </ul>
     </nav>
   </div>
