@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'parking/index'
+
+  get 'parking/detail'
 
   get 'booking/index'
 
@@ -19,8 +22,6 @@ Rails.application.routes.draw do
   get 'head/info'
 
   get 'head/pregyresp'
-
-  get 'home/index'
 
   get 'home/details'
 
