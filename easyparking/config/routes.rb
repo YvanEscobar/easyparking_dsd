@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   get 'parking/index'
 
   get 'parking/detail'
+  get 'head/termycond'
 
-  get 'home/index'
+  get 'head/info'
+
+  get 'head/pregyresp'
 
   get 'home/details'
 
