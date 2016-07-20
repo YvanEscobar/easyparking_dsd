@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'home/editperfil'
+
+  get 'home/perfil'
+
   get 'parking/index'
 
   get 'parking/detail'
