@@ -49,3 +49,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem "twitter-bootstrap-rails"
+gem "annotate"
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
+gem "paperclip", "~> 5.0.0"
+gem "devise"
+gem 'devise-bootstrap-views'
