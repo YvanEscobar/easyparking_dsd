@@ -1,76 +1,60 @@
-<!--
-<h1>User#login</h1>
-<p>AQUI EL USUARIO SE LOGUEA</p>
--->
-<div class="container" style="padding: 5% 0;">
+
+<div class="container block-margin">
+  <div class="row">
     <div class="col-lg-6">
-    <div class="well">
-	<form id="formulario" action="enviado.php" method="post">
-	    <fieldset>
-	        <legend>Accede como usuario</legend>
-	        <div class="form-group">
-	            <label> Email: </label>
-	                <input id="campo1" type="email" name="email" class="form-control" required />
-	                
-	       </div>
-	       <div class="form-group">
-            <label> Clave: </label>
-				<input id="campo2" name="clave" type="password" class="form-control" />
-				</div>
-				<div class="form-group">
-            <input id="campo3" name="enviar" type="submit" value="Ingresar" class="form-control btn btn-primary" />
-            
-            </div>
-            <div class="form-group">
-                <a class="btn btn-primary btn-social btn-facebook">
-              <span class="fa fa-facebook"></span>
-              Ingresar con facebook
-            </a>
-            </div>
-	    </fieldset>
-	</form>
-	</div>
-	</div>
-	<div class="col-lg-6">
-	<div class="well">
-	<form id="formulario" method="post">
-	    <fieldset>
-	        <legend>Reg&iacute;strese como Ususario</legend>
-	            <div class="form-group">
-	            <label> Nombre: </label>
-	                <input id="campo4" name="nombre" type="text" class="form-control" />
-	            </div>
-	            <div class="form-group">
-				<label> Apellido: </label>
-	                <input id="campo5" name="apellido" type="text"  class="form-control" />	
-	            </div>
-	            <div class="form-group">
-				<label> Direcci&oacute;n: </label>
-	                <input id="campo6" name="direccion" type="text"  class="form-control"/>
-	            </div>
-	            <div class="form-group">
-				<label> Email: </label>
-	                <input id="campo7" type="email" name="email" class="form-control" required />
-	            </div>
-	            <div class="form-group">
-				<label> Ingrese su Clave: </label>
-	                <input id="campo8" name="email" type="text" class="form-control" />
-	            </div>
-	            <div class="form-group">
-				<label> Ingrese nuevamente su Clave: </label>
-	                <input id="campo9" name="email" type="text" class="form-control" />	
-	            </div>
-	            <div class="form-group">
-	            <input id="campo10" name="enviar" type="submit" value="Registrar" class="form-control btn btn-primary" />
-	            </div>
-	            <div class="form-group">
-	            <a class="btn btn-primary btn-social btn-facebook">
-              <span class="fa fa-facebook"></span>
-              Registrate con facebook
-            </a>
-	            </div>
-	    </fieldset>
-	</form>
-	</div>
-	</div>
+      <div class="well">
+        <div class="page-header">
+          <h2>Inicia sesión <small>Soy un usuario registrado.</small></h2>
+        </div>
+        <form>
+          <div class="form-group">
+            <label for="txtemail">Correo electrónico</label>
+            <input type="email" class="form-control" id="txtemail" placeholder="Correo electrónico" required>
+          </div>
+          <div class="form-group">
+            <label for="txtpassword">Contraseña</label>
+            <input type="password" class="form-control" id="txtpassword" placeholder="Contraseña" required>
+          </div>
+          <%= link_to 'Ingresar', '#', :class => 'btn btn-block btn-primary' %>
+          <%= link_to '<span class="fa fa-facebook"></span> Ingresar con facebook'.html_safe, '#', :class => 'btn btn-block btn-primary btn-social btn-facebook' %>
+        </form>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="well">
+        <div class="page-header">
+          <h2>Regístrate <small>Soy un usuario nuevo.</small></h2>
+        </div>
+        <form>
+          <div class="form-group">
+            <label for="txtname">Nombre</label>
+            <input type="text" class="form-control" id="txtname" placeholder="Nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="txtsurname">Apellidos</label>
+            <input type="text" class="form-control" id="txtsurname" placeholder="Apellidos" required>
+          </div>
+          <div class="form-group">
+            <label for="txtaddress">Dirección</label>
+            <input type="text" class="form-control" id="txtaddress" placeholder="Dirección" required>
+          </div>
+          <div class="form-group">
+            <label for="txtemail">Correo electrónico</label>
+            <input type="email" class="form-control" id="txtemail" placeholder="Correo electrónico" required>
+          </div>
+          <div class="form-group">
+            <label for="txtpassword">Contraseña</label>
+            <input type="password" class="form-control" id="txtpassword" placeholder="Contraseña" required>
+          </div>
+          <div class="form-group">
+            <label for="txtpassword">Ingrese nuevamente su contraseña</label>
+            <input type="password" class="form-control" id="txtpassword" placeholder="Contraseña" required>
+          </div>
+          <%= link_to 'Registrar', '#', :class => 'btn btn-block btn-primary' %>
+          <%= link_to '<span class="fa fa-facebook"></span> Registrate con facebook'.html_safe, '#', :class => 'btn btn-block btn-primary btn-social btn-facebook' %>
+      </form>
+      </div>
+    </div>
+  </div>
 </div>

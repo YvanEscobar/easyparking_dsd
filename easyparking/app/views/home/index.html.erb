@@ -1,23 +1,57 @@
-<div class="hero">
-  <div class="container">
-    <h1 class="text-center">Encuentra los mejores alquileres de parqueo!!</h1>
-    <form class="form-inline text-center">
-      <input type="text" class="form-control" placeholder="¿Donde deseas parquear ...?">
-      <div class="form-group">
-          <input type="date" class="form-control">
-      </div>
-      <select class="form-control">
-          <option>Uno Solo</option>
-          <option>Multiple</option>
-      </select>
-      <!--<button type="submit" class="btn btn-success"><i class="fa fa-search"></i> Buscar</button>-->
-      <%= link_to "Buscar", parking_index_path, :class => "btn btn-success" %>
-    </form>
-  </div>
-</div>
 
-<div class="result">
+<section class="carousel">
   <div class="container">
-    <h2 class="text-center">En todo Lima ... Y al toque.!!</h2>
+    <div class="carousel-caption">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+          <h1 class="text-center">Encuentra los mejores estacionamientos aquí.</h1>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" placeholder="¿Dónde te deseas estacionar?">
+            <span class="input-group-btn">
+              <%= link_to "Buscar", parking_index_path, :class => "btn btn-primary" %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
+
+
+<div class="container">
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">Busca <span class="text-muted"></span></h2>
+      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+    <div class="col-md-5">
+      <%= image_tag("placeholder.png", :alt => "placeholder", :class => "featurette-image img-responsive center-block") %>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7 col-md-push-5">
+      <h2 class="featurette-heading">Encuentra <span class="text-muted"></span></h2>
+      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+    <div class="col-md-5 col-md-pull-7">
+      <%= image_tag("placeholder.png", :alt => "placeholder", :class => "featurette-image img-responsive center-block") %>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">Reserva <span class="text-muted"></span></h2>
+      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+    <div class="col-md-5">
+      <%= image_tag("placeholder.png", :alt => "placeholder", :class => "featurette-image img-responsive center-block") %>
+    </div>
+  </div>
+
 </div>

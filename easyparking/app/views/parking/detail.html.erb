@@ -1,2 +1,80 @@
-<h1>Parking#detail</h1>
-<p>Find me in app/views/parking/detail.html.erb</p>
+
+<div class="container block-margin">
+  <div class="row">
+    <div class="col-md-6">
+      <%= image_tag("placeholder.png", :alt => "placeholder", :class => "featurette-image img-responsive center-block") %>
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+      <h1>Cochera en San Isidro</h1>
+      <div class="price">S/. 100</div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, porro quas quod illo vel odit aut qui hic? Vero, quibusdam, praesentium porro enim minima ullam nemo labore consequatur voluptatum numquam!</p>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <select class="form-control">
+              <option>Elige tiempo</option>
+              <option>Hora</option>
+              <option>Día</option>
+              <option>Semana</option>
+              <option>Mes</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <select class="form-control">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <%= link_to "Reservar", booking_index_path, {class: "btn btn-primary btn-lg", role: "button"} %>
+      </div>
+    </div>
+  </div>
+  
+  <h3 class="text-center">Valoraciones y reseñas</h3>
+  <hr>
+  <div class="row">
+    <div class="col-md-2 col-md-offset-1">
+      <p><span>100%</span> de los consumiedores recomiendan este producto</p>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-6">
+          <div class="text-right">20 de Julio de 2016</div>
+        </div>
+      </div>
+      <h5>Muy limpio</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, sed, quaerat, dolorum, modi voluptate quisquam vitae soluta ad excepturi alias blanditiis placeat voluptatum aliquid numquam totam obcaecati neque itaque adipisci.</p>
+      
+      <hr>
+      
+      <div class="row">
+        <div class="col-md-6 col-md-offset-6">
+          <div class="text-right">20 de Julio de 2016</div>
+        </div>
+      </div>
+      <h5>Muy limpio</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, sed, quaerat, dolorum, modi voluptate quisquam vitae soluta ad excepturi alias blanditiis placeat voluptatum aliquid numquam totam obcaecati neque itaque adipisci.</p>
+      
+      <hr>
+      
+      <div class="row">
+        <div class="col-md-6 col-md-offset-6">
+          <div class="text-right">20 de Julio de 2016</div>
+        </div>
+      </div>
+      <h5>Muy limpio</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, sed, quaerat, dolorum, modi voluptate quisquam vitae soluta ad excepturi alias blanditiis placeat voluptatum aliquid numquam totam obcaecati neque itaque adipisci.</p>
+    </div>
+  </div>
+  
+</div>
