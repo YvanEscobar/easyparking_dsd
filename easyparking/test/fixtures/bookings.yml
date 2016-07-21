@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  parking: one
+  arrival_date: 2016-07-20
+  start_date: 2016-07-20
+  end_date: 2016-07-20
+  payment_method: one
+
+two:
+  user: two
+  parking: two
+  arrival_date: 2016-07-20
+  start_date: 2016-07-20
+  end_date: 2016-07-20
+  payment_method: two

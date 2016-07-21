@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  name: MyString
+  description: MyText
+  parking_type: one
+  address: MyText
+  district: one
+  price_per_hour: 9.99
+  start_date: 2016-07-20
+  end_date: 2016-07-20
+  published: false
+
+two:
+  user: two
+  name: MyString
+  description: MyText
+  parking_type: two
+  address: MyText
+  district: two
+  price_per_hour: 9.99
+  start_date: 2016-07-20
+  end_date: 2016-07-20
+  published: false

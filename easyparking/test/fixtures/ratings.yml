@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  parking: one
+  value: 1
+
+two:
+  user: two
+  parking: two
+  value: 1
