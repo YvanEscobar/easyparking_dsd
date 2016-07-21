@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  get 'home/editperfil'
+
+  get 'home/perfil'
+
   get 'parking/index'
 
   get 'parking/detail'

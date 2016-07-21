@@ -1,8 +1,4 @@
 class HomeController < ApplicationController
-  def index
+  def perfil
   end
-
-  def details
-  end
-
 end
