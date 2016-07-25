@@ -1,7 +1,8 @@
 class ParkingController < ApplicationController
   def index
+    @districts = District.all
   end
 
-  def detail
+  def details
   end
 end
