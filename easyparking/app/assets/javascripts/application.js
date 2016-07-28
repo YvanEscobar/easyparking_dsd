@@ -14,4 +14,8 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require moment
+//= require moment/es
+//= require bootstrap-datetimepicker
+//= require twitter/typeahead.min
 //= require_tree .

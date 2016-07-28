@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-lg-8">
       
-      <div class="row">
+      <div class="row" id="parking-list">
         <div class="col-sm-6 col-md-4">
           <div class="thumbnail">
             <%= image_tag("placeholder.png", :alt => "placeholder") %>
@@ -82,57 +82,58 @@
     <div class="col-lg-4">
       <div class="panel panel-default">
         <div class="panel-heading">Filtros</div>
-        
+        <%= form_tag('/parking', remote: true) do %>
         <div class="panel-body">
           <div class="form-group">
-            <label for="district">Dónde</label>
+            <label for="district">¿Dónde?</label>
             <%= select_tag "district", options_from_collection_for_select(@districts, "id", "name"), class: "form-control", include_blank: "Seleccione un distrito" %>
-            <!--<select class="form-control">
-              <option>Distrito</option>
-              <option>Surco</option>
-              <option>San Isidro</option>
-              <option>Miraflores</option>
-              <option>San Borja</option>
-            </select>-->
           </div>
           <div class="form-group">
-            <label for="txtdate">Cuándo</label>
-            <input type="date" class="form-control">
+            <label for="txtdate">¿Cuándo?</label>
+            <div class='input-group date' id='dtpdate'>
+              <input type="text" id="txtdate" class="form-control">
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
           </div>
           <div class="form-group">
-            <label for="txthour">Hora</label>
-            <input type="text" class="form-control">
+            <!--
+            TODO: Considerar dentro de la disponibilidad del anuncio, el horario de atención
+            del estacionamiento
+            -->
+            <label for="txttime">¿A qué hora?</label>
+            <div class='input-group date' id='dtptime'>
+              <input type="text" id="txttime" class="form-control">
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-time"></span>
+              </span>
+            </div>
           </div>
+          <script type="text/javascript">
+            $(function () {
+                $('#dtpdate').datetimepicker({
+                    format: 'L'
+                });
+                $('#dtptime').datetimepicker({
+                    format: 'LT'
+                });
+            });
+          </script>
         </div>
         
         <hr>
         
         <div class="panel-body">
-          <label for="txthour">Características</label>
+          <label>Características</label>
+          <% @features.each do |feature| %>
           <div class="checkbox">
             <label>
-              <input type="checkbox" value="">
-              característica
+              <%= check_box_tag 'features[]', feature.id -%>
+              <%= h feature.name -%>
             </label>
           </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" value="">
-              característica
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" value="">
-              característica
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" value="">
-              característica
-            </label>
-          </div>
+          <% end %>
         </div>
         
         <hr>
@@ -161,7 +162,7 @@
           </div>
           
         </div>
-        
+        <% end %>
       </div>
     </div>
     

@@ -39,8 +39,8 @@ class Parking < ApplicationRecord
   belongs_to :parking_type
   belongs_to :district
   has_many :bookings
-  has_many :users, through: :booking
+  has_many :users, through: :bookings
   
-  has_attached_file :photo, styles: { medium: "365x260>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :photo, styles: { medium: "365x260>" }, default_url: "/images/placeholder.png"
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 end
