@@ -1,4 +1,16 @@
-
+<script>
+    $(document).ready(function() {
+       $("#buscar").click(function(e) {
+           e.preventDefault();
+           var selected = $("#district").val();
+           if (selected != "") {
+               window.location = '<%= root_path %>' + "?district_id=" + selected; 
+           } else {
+               window.location = '<%= root_path %>';
+           }
+       });
+    });
+</script>
 <section class="carousel">
   <div class="container">
     <div class="carousel-caption">

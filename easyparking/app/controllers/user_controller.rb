@@ -1,4 +1,5 @@
 class UserController < ApplicationController
-  def login
+  def profile
+    @user = User.find(params[:id])
   end
 end
