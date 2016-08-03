@@ -7,6 +7,7 @@
 #  name               :string(255)
 #  description        :text(65535)
 #  parking_type_id    :integer
+#  spaces             :integer
 #  address            :text(65535)
 #  district_id        :integer
 #  price_per_hour     :decimal(10, )
@@ -37,7 +38,9 @@ class Parking < ApplicationRecord
   belongs_to :user
   belongs_to :parking_type
   belongs_to :district
+  has_many :bookings
+  has_many :users, through: :bookings
   
-  has_attached_file :photo, styles: { medium: "365x260>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :photo, styles: { medium: "365x260>" }, default_url: "/images/placeholder.png"
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 end

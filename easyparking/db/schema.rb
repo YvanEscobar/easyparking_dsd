@@ -15,9 +15,9 @@ ActiveRecord::Schema.define(version: 20160729091412) do
   create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "parking_id"
-    t.date     "arrival_date"
-    t.date     "start_date"
-    t.date     "end_date"
+    t.integer  "spaces"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.integer  "payment_method_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20160729091412) do
     t.string   "name"
     t.text     "description",        limit: 65535
     t.integer  "parking_type_id"
+    t.integer  "spaces"
     t.text     "address",            limit: 65535
     t.integer  "district_id"
     t.decimal  "price_per_hour",                   precision: 10

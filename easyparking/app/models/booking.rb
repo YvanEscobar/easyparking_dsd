@@ -5,9 +5,9 @@
 #  id                :integer          not null, primary key
 #  user_id           :integer
 #  parking_id        :integer
-#  arrival_date      :date
-#  start_date        :date
-#  end_date          :date
+#  spaces            :integer
+#  start_date        :datetime
+#  end_date          :datetime
 #  payment_method_id :integer
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
