@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725053716) do
+ActiveRecord::Schema.define(version: 20160728023051) do
 
   create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.integer  "user_id"
@@ -40,10 +40,34 @@ ActiveRecord::Schema.define(version: 20160725053716) do
     t.index ["city_id"], name: "index_districts_on_city_id", using: :btree
   end
 
+  create_table "features_per_parkings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.integer  "parking_id"
+    t.integer  "parking_feature_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["parking_feature_id"], name: "index_features_per_parkings_on_parking_feature_id", using: :btree
+    t.index ["parking_id"], name: "index_features_per_parkings_on_parking_id", using: :btree
+  end
+
   create_table "parking_features", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "parking_features_parkings", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.integer "parking_id",         null: false
+    t.integer "parking_feature_id", null: false
+  end
+
+  create_table "parking_schedules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.integer  "parking_id"
+    t.integer  "day_of_week"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["parking_id"], name: "index_parking_schedules_on_parking_id", using: :btree
   end
 
   create_table "parking_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
@@ -114,6 +138,11 @@ ActiveRecord::Schema.define(version: 20160725053716) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.string   "address"
+    t.integer  "district_id"
+    t.string   "phone"
+    t.index ["district_id"], name: "index_users_on_district_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -122,6 +151,9 @@ ActiveRecord::Schema.define(version: 20160725053716) do
   add_foreign_key "bookings", "payment_methods"
   add_foreign_key "bookings", "users"
   add_foreign_key "districts", "cities"
+  add_foreign_key "features_per_parkings", "parking_features"
+  add_foreign_key "features_per_parkings", "parkings"
+  add_foreign_key "parking_schedules", "parkings"
   add_foreign_key "parkings", "districts"
   add_foreign_key "parkings", "parking_types"
   add_foreign_key "parkings", "users"
@@ -129,4 +161,5 @@ ActiveRecord::Schema.define(version: 20160725053716) do
   add_foreign_key "ratings", "users"
   add_foreign_key "reviews", "parkings"
   add_foreign_key "reviews", "users"
+  add_foreign_key "users", "districts"
 end

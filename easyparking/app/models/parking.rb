@@ -40,7 +40,11 @@ class Parking < ApplicationRecord
   belongs_to :district
   has_many :bookings
   has_many :users, through: :bookings
+  has_many :parking_schedules
+  has_and_belongs_to_many :parking_features
   
   has_attached_file :photo, styles: { medium: "365x260>" }, default_url: "/images/placeholder.png"
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
+  validates :name, presence: true
+
 end
