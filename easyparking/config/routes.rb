@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get 'search/index'
   get 'search/details'
 
+  resources :home do
+  get :autocomplete_district_name, :on => :collection
+  end
 
   get 'profile/:id' => "user#profile", as: 'user_profile'
 
