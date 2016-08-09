@@ -24,8 +24,13 @@ Rails.application.routes.draw do
   
   root 'home#index'
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  resources :home do
+  get :autocomplete_district_name, :on => :collection
+  end
+
+  get 'profile/:id' => "user#profile", as: 'user_profile'
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

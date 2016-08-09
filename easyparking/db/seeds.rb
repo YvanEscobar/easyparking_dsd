@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+District.create(name: "Miraflores")
+District.create(name: "Surco")
+District.create(name: "San Isidro")
+District.create(name: "San Juan de Miraflores")
+District.create(name: "San Miguel")

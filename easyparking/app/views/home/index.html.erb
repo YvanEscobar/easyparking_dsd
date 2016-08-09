@@ -1,3 +1,16 @@
+<script>
+    $(document).ready(function() {
+       $("#buscar").click(function(e) {
+           e.preventDefault();
+           var selected = $("#district").val();
+           if (selected != "") {
+               window.location = '<%= root_path %>' + "?district_id=" + selected; 
+           } else {
+               window.location = '<%= root_path %>';
+           }
+       });
+    });
+</script>
 
 <section class="carousel">
   <div class="container">
@@ -6,7 +19,7 @@
         <div class="col-lg-10 col-lg-offset-1">
           <h1 class="text-center">Encuentra los mejores estacionamientos aquí.</h1>
           <div id="parking-search" class="input-group input-group-lg">
-            <input type="text" id="parking-search-typeahead" class="form-control" placeholder="¿Dónde te deseas estacionar?">
+            <input type="text" data-autocomplete="home/autocomplete_district_name" class="form-control" placeholder="¿Dónde te deseas estacionar?">
             <span class="input-group-btn">
               <%= link_to "Buscar", parking_path, :class => "btn btn-primary" %>
             </span>
@@ -26,7 +39,7 @@
       <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
     </div>
     <div class="col-md-5">
-      <%= image_tag("placeholder.png", :alt => "placeholder", :class => "featurette-image img-responsive center-block") %>
+      <%= image_tag("busca.jpg", :alt => "placeholder", :class => "featurette-image img-responsive center-block") %>
     </div>
   </div>
 
@@ -38,7 +51,7 @@
       <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
     </div>
     <div class="col-md-5 col-md-pull-7">
-      <%= image_tag("placeholder.png", :alt => "placeholder", :class => "featurette-image img-responsive center-block") %>
+      <%= image_tag("encuentra.jpg", :alt => "placeholder", :class => "featurette-image img-responsive center-block") %>
     </div>
   </div>
 
@@ -50,7 +63,7 @@
       <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
     </div>
     <div class="col-md-5">
-      <%= image_tag("placeholder.png", :alt => "placeholder", :class => "featurette-image img-responsive center-block") %>
+      <%= image_tag("reserva.jpg", :alt => "placeholder", :class => "featurette-image img-responsive center-block") %>
     </div>
   </div>
 
