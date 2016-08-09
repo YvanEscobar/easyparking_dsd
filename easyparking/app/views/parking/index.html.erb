@@ -4,77 +4,7 @@
     <div class="col-lg-8">
       
       <div class="row" id="parking-list">
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <%= image_tag("placeholder.png", :alt => "placeholder") %>
-            <div class="caption">
-              <h3>Title</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <%= link_to "Ver detalles", parking_details_path, :class => "btn btn-primary" %>
-              <%= link_to "Reservar", booking_index_path, :class => "btn btn-primary" %>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <%= image_tag("placeholder.png", :alt => "placeholder") %>
-            <div class="caption">
-              <h3>Title</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <%= link_to "Ver detalles", parking_details_path, :class => "btn btn-primary" %>
-              <%= link_to "Reservar", booking_index_path, :class => "btn btn-primary" %>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <%= image_tag("placeholder.png", :alt => "placeholder") %>
-            <div class="caption">
-              <h3>Title</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <%= link_to "Ver detalles", parking_details_path, :class => "btn btn-primary" %>
-              <%= link_to "Reservar", booking_index_path, :class => "btn btn-primary" %>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <%= image_tag("placeholder.png", :alt => "placeholder") %>
-            <div class="caption">
-              <h3>Title</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <%= link_to "Ver detalles", parking_details_path, :class => "btn btn-primary" %>
-              <%= link_to "Reservar", booking_index_path, :class => "btn btn-primary" %>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <%= image_tag("placeholder.png", :alt => "placeholder") %>
-            <div class="caption">
-              <h3>Title</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <%= link_to "Ver detalles", parking_details_path, :class => "btn btn-primary" %>
-              <%= link_to "Reservar", booking_index_path, :class => "btn btn-primary" %>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <%= image_tag("placeholder.png", :alt => "placeholder") %>
-            <div class="caption">
-              <h3>Title</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <%= link_to "Ver detalles", parking_details_path, :class => "btn btn-primary" %>
-              <%= link_to "Reservar", booking_index_path, :class => "btn btn-primary" %>
-            </div>
-          </div>
-        </div>
+        <%= render @parkings %>
       </div>
       
     </div>
@@ -82,7 +12,7 @@
     <div class="col-lg-4">
       <div class="panel panel-default">
         <div class="panel-heading">Filtros</div>
-        <%= form_tag('/parking', remote: true) do %>
+        <%= form_tag('/parking', remote: false, :id => 'frmfilter') do %>
         <div class="panel-body">
           <div class="form-group">
             <label for="district">¿Dónde?</label>
@@ -91,20 +21,16 @@
           <div class="form-group">
             <label for="txtdate">¿Cuándo?</label>
             <div class='input-group date' id='dtpdate'>
-              <input type="text" id="txtdate" class="form-control">
+              <input type="text" id="txtdate" name="date" class="form-control">
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
               </span>
             </div>
           </div>
           <div class="form-group">
-            <!--
-            TODO: Considerar dentro de la disponibilidad del anuncio, el horario de atención
-            del estacionamiento
-            -->
             <label for="txttime">¿A qué hora?</label>
             <div class='input-group date' id='dtptime'>
-              <input type="text" id="txttime" class="form-control">
+              <input type="text" id="txttime" name="time" class="form-control">
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-time"></span>
               </span>
@@ -139,25 +65,23 @@
         <hr>
         
         <div class="panel-body">
-          <label>Precio</label>
+          <label for="cbopricerange">Precio</label>
           
           <div class="row">
-            <div class="col-sm-5">
+            <div class="col-sm-10">
               <div class="form-group">
-                <label class="sr-only" for="">Desde</label>
-                <input type="text" class="form-control" id="" placeholder="S/.">
+                <select name="pricerange" id="cbopricerange" class="form-control">
+                  <option value="0">Seleccione</option>
+                  <option value="1">Menos de S/. 5.00</option>
+                  <option value="2">Entre S/. 5.00 y S/. 10.00</option>
+                  <option value="3">Entre S/. 10.00 y S/. 15.00</option>
+                  <option value="4">Más de S/. 15.00</option>
+                </select>
               </div>
             </div>
-            
-            <div class="col-sm-5">
-              <div class="form-group">
-                <label class="sr-only" for="">Hasta</label>
-                <input type="text" class="form-control" id="" placeholder="S/.">
-              </div>
-            </div>
-            
+
             <div class="col-sm-2">
-              <%= link_to '<span class="glyphicon glyphicon-align-left"></span>'.html_safe, '#', :class => 'btn btn-default' %>
+              <%= link_to '<span class="glyphicon glyphicon-align-left"></span>'.html_safe, '#', :class => 'btn btn-default', :onclick => "$('#frmfilter').submit()" %>
             </div>
           </div>
           

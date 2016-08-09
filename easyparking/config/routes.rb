@@ -7,12 +7,17 @@ Rails.application.routes.draw do
   get 'home/faq'
   get 'home/tos'
   
-  get 'parking/index'
-  get 'parking/details'
+  get 'parking', to: 'parking#index'
+  get 'parking/:district/:date/:time/:features', to: 'parking#index'
+  post 'parking', to: 'parking#index'
+  get 'parking/details/:id', to: 'parking#details', as: 'parkdetails'
+  get 'parking/details/:id/:time', to: 'parking#details', as: 'parkdetailstime'
 
-  get 'booking/index'
-  get 'booking/confirmation'  
-
+  get 'booking/confirmation/:booking_id', to: 'booking#confirmation'
+  
+  get 'booking/:parking_id', to: 'booking#index', as: 'booking'
+  get 'booking/:parking_id/:time', to: 'booking#index', as: 'bookingtime'
+  
   get 'user/login'
   get 'user/profile'
   get 'user/edit_profile'

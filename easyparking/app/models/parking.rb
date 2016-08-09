@@ -38,6 +38,8 @@ class Parking < ApplicationRecord
   belongs_to :user
   belongs_to :parking_type
   belongs_to :district
+  has_many :reviews
+  has_many :ratings
   has_many :bookings
   has_many :users, through: :bookings
   has_many :parking_schedules

@@ -1,37 +1,56 @@
-<!--
-<h1>Booking#index</h1>
-<p>Find me in app/views/booking/index.html.erb</p>
--->
-<p>
-    <div class="container">
-        <h2>Reserva de espacio</h2>
-        <table class="table table-striped">
-            <thead>
-                <th>Imagen</th>
-                <th>Nombre</th>
-                <th>Espacios</th>
-                <th>Precio</th>
-            </thead>
-            <tbody>
-                <form class="form-inline">
-                <td><%= image_tag 'parking', size: "64", class: "img-thumbnail" %></td>
-                <td>Cochera en San Isidro</td>
-                <td><input type="number" class="form-control" size="2" value="1"></td>
-                <td>S/. 7.00</td>
-                </form>
-            </tbody>
-        </table>
+<%= form_tag('/booking/confirmation', remote: false, :class => "form-inline") do %>
+<div class="container block-margin">
+    <h2>Reserva de espacio</h2>
+    
+    <table class="table table-striped">
+        <thead>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Hora</th>
+            <th>Espacios</th>
+            <th>Precio por hora</th>
+            <th>Precio total</th>
+        </thead>
+        <tbody>
+            <%= hidden_field_tag "parking_id", @parking.id %>
+            <td><%= image_tag @parking.photo.url(:medium),  size: "64", :alt => @parking.name, :class => "img-thumbnail" %></td>
+            <td><%= @parking.name %></td>
+            <td>
+                <div class='input-group date' id='dtptime'>
+                  <input type="text" id="txttime" name="time" class="form-control" required>
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-time"></span>
+                  </span>
+                </div>
+                <script type="text/javascript">
+                $(function () {
+                    $('#dtptime').datetimepicker({
+                        format: 'LT'
+                    });
+                });
+                </script>
+            </td>
+            <td><input type="number" id="hours" name="hours" class="form-control" size="2" value="1" min="1" max="<%= @parking.spaces %>" required></td>
+            <td>S/. <%= sprintf '%.2f', @parking.price_per_hour %></td>
+            <td><strong id="total_price">S/. <%= sprintf '%.2f', @parking.price_per_hour %></strong></td>
+            <script type="text/javascript">
+                $('#hours').change(function() {
+                    $('#total_price').text("S/. " + (<%= @parking.price_per_hour %> * $('#hours').val()).toFixed(2));
+                });
+            </script>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <h3>Forma de pago</h3>
+    <ul style="list-linline">
+        <li><label><input type="radio" name="formapago" value="efectivo" class="form-control" required>Efectivo</label></li>
+        <li><label><input type="radio" name="formapago" value="tarjeta" class="form-control" required>Tarjeta de crédito/débito</label></li>
+    </ul>
+    
+    <div class="text-center">
+        <% link_to "Reservar", '#', :class => "btn btn-success" %>
+        <%= submit_tag "Confirmar reserva", data: { disable_with: "Espere por favor..." }, :class => "btn btn-success" %>
     </div>
-    <div class="container">
-        <h3>Forma de pago</h3>
-        <form>
-        <ul style="list-linline">
-            <li><label><input type="radio" name="formapago" value="efectivo">Efectivo</label></li>
-            <li><label><input type="radio" name="formapago" value="tarjeta">Tarjeta de crédito/débito</label></li>
-        </ul>
-        </form>
-        <div class="text-center">
-            <%= link_to "Reservar", '#', :class => "btn btn-success" %>
-        </div>
-    </div>
-</p>
+</div>
+<% end %>

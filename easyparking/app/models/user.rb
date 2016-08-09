@@ -33,6 +33,8 @@
 
 class User < ApplicationRecord
   belongs_to :district
+  has_many :ratings
+  has_many :reviews
   has_many :bookings
   has_many :parkings, through: :bookings
 
