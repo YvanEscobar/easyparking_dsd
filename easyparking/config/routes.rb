@@ -18,9 +18,9 @@ Rails.application.routes.draw do
   get 'booking/:parking_id', to: 'booking#index', as: 'booking'
   get 'booking/:parking_id/:time', to: 'booking#index', as: 'bookingtime'
   
-  get 'user/login'
-  get 'user/profile'
-  get 'user/edit_profile'
+  #get 'user/login'
+  #get 'user/profile'
+  #get 'user/edit_profile'
   
   root 'home#index'
 

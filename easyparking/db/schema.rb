@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20160728023051) do
     t.index ["city_id"], name: "index_districts_on_city_id", using: :btree
   end
 
-  create_table "features_per_parkings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "features_per_parkings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "parking_id"
     t.integer  "parking_feature_id"
     t.datetime "created_at",         null: false
@@ -49,18 +49,18 @@ ActiveRecord::Schema.define(version: 20160728023051) do
     t.index ["parking_id"], name: "index_features_per_parkings_on_parking_id", using: :btree
   end
 
-  create_table "parking_features", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "parking_features", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "parking_features_parkings", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "parking_features_parkings", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "parking_id",         null: false
     t.integer "parking_feature_id", null: false
   end
 
-  create_table "parking_schedules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "parking_schedules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "parking_id"
     t.integer  "day_of_week"
     t.time     "start_time"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20160728023051) do
     t.index ["parking_id"], name: "index_parking_schedules_on_parking_id", using: :btree
   end
 
-  create_table "parking_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "parking_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
