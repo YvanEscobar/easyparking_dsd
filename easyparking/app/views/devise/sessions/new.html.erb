@@ -1,58 +1,52 @@
 
 <div class="container">
   <div class="main">
-    <div class="form-account">
+    <div class="row">
       
-      <div class="form-heading">
-        <h3>Register now for Car Dealer</h3>
-      </div><!--/ .form-heading-->
-      
-      <div class="form-entry">
-        <p>
-          <!--<label>Username:</label>-->
-          <!--<input type="text">-->
-          <%= f.label :email %>
-          <%= f.email_field :email, autofocus: true, class: "form-control" %>
-        </p>
-        <p>
-          <!--<label>Your Email:</label>-->
-          <!--<input type="text">-->
-          <%= f.label :password %>
-          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-        </p>
-        <p class="wrong">A password will be e-mailed you. </p>
-        <a href="#" class="button orange">Sign Up</a>
-      </div><!--/ .form-entry-->
+      <div class="col-xs-4 col-xs-offset-4">
+        
+        <div class="form-account">
+          
+          <div class="form-heading">
+            <h3>Ingresar al sistema</h3>
+          </div><!--/ .form-heading-->
+          
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form" }) do |f| %>
+            <div class="form-entry">
+              <p>
+                <%= f.label :email %>
+                <%= f.email_field :email, autofocus: true, class: "form-control" %>
+              </p>
+              
+              <p>
+                <%= f.label :password %>
+                <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+              </p>
+              
+              <% if devise_mapping.rememberable? %>
+                <p class="checkbox">
+                  <%= f.label :remember_me do %>
+                    <%= f.check_box :remember_me %>Remember Me
+                  <% end %>
+                </p>
+              <% end %>
+              
+              <p>
+                <!--<a href="#" class="button orange">Sign Up</a>-->
+                <%= f.submit  t('.sign_in', :default => "Ingresar"), class: "btn btn-primary" %>
+              </p>
+              
+              <p class="devise-links">
+                <%= render "devise/shared/links" %>
+              </p>
+              
+            </div><!--/ .form-entry-->
+          <% end %>
+          
+        </div>
+        
+      </div>
       
     </div>
   </div>
-</div>
-
-<div class="panel panel-default devise-bs">
-  <div class="panel-heading">
-    <h1>Ingresar al sistema</h1>
-  </div>
-  <div class="panel-body">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form" }) do |f| %>
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-      </div>
-      <% if devise_mapping.rememberable? %>
-        <div class="checkbox">
-          <%= f.label :remember_me do %>
-            <%= f.check_box :remember_me %>remember me
-          <% end %>
-        </div>
-      <% end %>
-      <%= f.submit  t('.sign_in', :default => "Ingresar"), class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
-<div class="devise-links">
-  <%= render "devise/shared/links" %>  
 </div>
