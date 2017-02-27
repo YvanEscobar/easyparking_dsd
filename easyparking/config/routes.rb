@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get :autocomplete_district_name, :on => :collection
   end
 
-  get 'profile/:id' => "user#profile", as: 'user_profile'
+  #get 'profile/:id' => "user#profile", as: 'user_profile'
 
 
 
