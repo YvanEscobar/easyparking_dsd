@@ -748,7 +748,8 @@ text-center {
 	
 	.not-active select {background-color: #f6f6f6;}
 	
-	.form-panel .submit-search {
+	.submit-search {
+	// .form-panel .submit-search {
 		padding: 6px 29px;
 		border-top: none;
 		border-left: none;
@@ -769,7 +770,8 @@ text-center {
 	.top-panel .submit-search {margin: 24px 0 0 0;}
 	#sidebar .submit-search {float: left;}
 	
-	.form-panel .submit-search:hover {
+	.submit-search:hover {
+	// .form-panel .submit-search:hover {
 		border-bottom: 1px solid #313131;
 		background: #444343; /* Old browsers */
 		background: -moz-linear-gradient(top,  #444343 0%, #3a3a3a 100%); /* FF3.6+ */
@@ -852,6 +854,130 @@ text-center {
 				}
 			
 			.item-grid .button { float: right; margin: 0 0 0 20px; }
+
+
+
+/* -------------------------------------------------- */
+	/* Cart Holder
+	/* -------------------------------------------------- */
+	
+		ul.cart-items {margin-bottom: 25px;}
+
+			ul.cart-items li {
+				position: relative;
+				float: left;
+				display: block;
+				padding: 15px 0;
+				width: 25%;
+				border-left-width: 1px;
+				border-style: solid;
+				border-left-color: #fbfafa;
+				border-bottom-width: 6px;
+				border-bottom-color: #d0d0d0;
+				-wekbit-box-sizing: border-box;
+				   -moz-box-sizing: border-box;
+						box-sizing: border-box;
+			}
+			
+			ul.cart-items li {
+				background: #d1d0d0; /* Old browsers */
+				background: -moz-linear-gradient(top,  #d1d0d0 0%, #b2b1b1 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d1d0d0), color-stop(100%,#b2b1b1)); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top,  #d1d0d0 0%,#b2b1b1 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top,  #d1d0d0 0%,#b2b1b1 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top,  #d1d0d0 0%,#b2b1b1 100%); /* IE10+ */
+				background: linear-gradient(to bottom,  #d1d0d0 0%,#b2b1b1 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1d0d0', endColorstr='#b2b1b1',GradientType=0 ); /* IE6-9 */
+			}
+			
+			ul.cart-items li:first-child {
+				border-left: none;
+				-webkit-border-radius: 2px 0 0 0;
+				-moz-border-radius: 2px 0 0 0;
+				border-radius: 2px 0 0 0;
+			}
+			
+			ul.cart-items li:last-child {
+				-webkit-border-radius: 0 2px 0 0;
+				-moz-border-radius: 0 2px 0 0;
+				border-radius: 0 2px 0 0;
+			}
+			
+			ul.cart-items li.step-now {
+				border-bottom-color: #fe5214;
+				background: #515151; /* Old browsers */
+				background: -moz-linear-gradient(top,  #515151 0%, #3f3f3f 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#515151), color-stop(100%,#3f3f3f)); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top,  #515151 0%,#3f3f3f 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top,  #515151 0%,#3f3f3f 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top,  #515151 0%,#3f3f3f 100%); /* IE10+ */
+				background: linear-gradient(to bottom,  #515151 0%,#3f3f3f 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#515151', endColorstr='#3f3f3f',GradientType=0 ); /* IE6-9 */
+			}
+			
+			ul.cart-items li.step-error {
+				background: #fd8459;
+				border-bottom-color: #fe5214;
+			}
+			
+			ul.cart-items li.step-success {
+				background: #3dd853;
+				border-bottom-color: #009036;
+			}
+			
+				ul.cart-items li .cart-title {
+					margin: 0;
+					color: #fbfafa;
+					font-size: 17px;
+					text-align: center;
+				}
+				
+				ul.cart-items li .circle {
+					position: absolute;
+					z-index: 2;
+					left: 50%;
+					bottom: -15px;
+					margin-left: -12px;
+					display: block;
+					width: 24px;
+					height: 24px;
+					background-color: #d0d0d0;
+					color: #fbfafa;
+					font-size: 15px;
+					text-align: center;
+					line-height: 24px;
+				}
+				
+				ul.cart-items li .circle {
+					-webkit-border-radius: 50%;
+					   -moz-border-radius: 50%;
+							border-radius: 50%;
+				}
+				
+				ul.cart-items li.step-now .circle,
+				ul.cart-items li.step-error .circle {background-color: #fe5214;}
+				
+				ul.cart-items li.step-success .circle {background-color: #009036;}
+				
+				.cart-content p {margin-bottom: 1.5em !important;}
+	
+		.cart-content.step-1 .five.columns {width: 286px;}
+		.cart-content.step-1 .three.columns {width: 133px;}
+		
+		.cart-content.step-2 .four.columns {width: 209px;}
+		
+			.cart-content .input-check input[type="checkbox"] {
+				margin-right: 15px;
+				vertical-align: sub;
+			}
+			
+			/* Upload Holder */
+			
+			.upload-holder {margin-bottom: 20px;}
+			
+				.upload-holder input[type="text"] {width: 265px;}
+				.upload-holder a.button {padding: 6px 10px;}
+				.upload-holder i {color: #585757;}
 
 
 

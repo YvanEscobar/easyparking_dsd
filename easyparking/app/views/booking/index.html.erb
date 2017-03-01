@@ -1,56 +1,107 @@
 <%= form_tag('/booking/confirmation', remote: false, :class => "form-inline") do %>
 <div class="container block-margin">
-    <h2>Reserva de espacio</h2>
+  <div class="main">
     
-    <table class="table table-striped">
-        <thead>
-            <th>Imagen</th>
-            <th>Nombre</th>
-            <th>Hora</th>
-            <th>Espacios</th>
-            <th>Precio por hora</th>
-            <th>Precio total</th>
-        </thead>
-        <tbody>
-            <%= hidden_field_tag "parking_id", @parking.id %>
-            <td><%= image_tag @parking.photo.url(:medium),  size: "64", :alt => @parking.name, :class => "img-thumbnail" %></td>
-            <td><%= @parking.name %></td>
-            <td>
-                <div class='input-group date' id='dtptime'>
-                  <input type="text" id="txttime" name="time" class="form-control" required>
-                  <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-time"></span>
-                  </span>
-                </div>
-                <script type="text/javascript">
-                $(function () {
-                    $('#dtptime').datetimepicker({
-                        format: 'LT'
-                    });
-                });
-                </script>
-            </td>
-            <td><input type="number" id="hours" name="hours" class="form-control" size="2" value="1" min="1" max="<%= @parking.spaces %>" required></td>
-            <td>S/. <%= sprintf '%.2f', @parking.price_per_hour %></td>
-            <td><strong id="total_price">S/. <%= sprintf '%.2f', @parking.price_per_hour %></strong></td>
-            <script type="text/javascript">
-                $('#hours').change(function() {
-                    $('#total_price').text("S/. " + (<%= @parking.price_per_hour %> * $('#hours').val()).toFixed(2));
-                });
-            </script>
-        </tbody>
-    </table>
-</div>
-<div class="container">
-    <h3>Forma de pago</h3>
-    <ul style="list-linline">
-        <li><label><input type="radio" name="formapago" value="efectivo" class="form-control" required>Efectivo</label></li>
-        <li><label><input type="radio" name="formapago" value="tarjeta" class="form-control" required>Tarjeta de crédito/débito</label></li>
-    </ul>
+    <div class="form-account">
+
+			<div class="form-heading">
+				<h3>Reserva de espacio</h3>
+			</div>
+
+			<div class="form-entry">
+				
+				<div class="cart-holder clearfix">
+					
+					<!--<ul class="cart-items clearfix">-->
+						
+					<!--	<li class="step-now">-->
+					<!--		<h5 class="cart-title">Características</h5>-->
+					<!--		<span class="circle">1</span>-->
+					<!--	</li>-->
+					<!--	<li>-->
+					<!--		<h5 class="cart-title">Detalles</h5>-->
+					<!--		<span class="circle">2</span>-->
+					<!--	</li>-->
+					<!--	<li>-->
+					<!--		<h5 class="cart-title">Contacto</h5>-->
+					<!--		<span class="circle">3</span>-->
+					<!--	</li>-->
+					<!--	<li>-->
+					<!--		<h5 class="cart-title">Enviar</h5>-->
+					<!--		<span class="circle">4</span>-->
+					<!--	</li>-->
+						
+					<!--</ul>-->
+					
+					<div class="cart-content step-1 clearfix">
+						
+						<table class="table table-striped">
+              <thead>
+                  <th>Imagen</th>
+                  <th>Nombre</th>
+                  <th>Hora</th>
+                  <th>Espacios</th>
+                  <th>Precio por hora</th>
+                  <th>Precio total</th>
+              </thead>
+              <tbody>
+                  <%= hidden_field_tag "parking_id", @parking.id %>
+                  <td><%= image_tag @parking.photo.url(:medium),  size: "64", :alt => @parking.name, :class => "img-thumbnail" %></td>
+                  <td><%= @parking.name %></td>
+                  <td>
+                      <div class='input-group date' id='dtptime'>
+                        <input type="text" id="txttime" name="time" class="form-control" required>
+                        <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                      </div>
+                      <script type="text/javascript">
+                      $(function () {
+                          $('#dtptime').datetimepicker({
+                              format: 'LT'
+                          });
+                      });
+                      </script>
+                  </td>
+                  <td><input type="number" id="hours" name="hours" class="form-control" size="2" value="1" min="1" max="<%= @parking.spaces %>" required></td>
+                  <td>S/. <%= sprintf '%.2f', @parking.price_per_hour %></td>
+                  <td><strong id="total_price">S/. <%= sprintf '%.2f', @parking.price_per_hour %></strong></td>
+                  <script type="text/javascript">
+                      $('#hours').change(function() {
+                          $('#total_price').text("S/. " + (<%= @parking.price_per_hour %> * $('#hours').val()).toFixed(2));
+                      });
+                  </script>
+              </tbody>
+          </table>
+						
+					</div>
+					
+					<div class="entry-item">
+      		
+        		<h3 class="section-title">Forma de pago</h3>
+        		
+        		<ul style="list-linline">
+              <li>
+                <label><input type="radio" name="formapago" value="efectivo" class="" checked required> Efectivo</label>
+              </li>
+              <li>
+                <label><input type="radio" name="formapago" value="tarjeta" class="" required> Tarjeta de crédito/débito</label>
+              </li>
+            </ul>
+        		
+        	</div>
+        	
+        	<h3 class="section-title"></h3>
+        	
+					<% link_to "Reservar", '#', :class => "btn btn-success" %>
+          <%= submit_tag "Confirmar reserva", data: { disable_with: "Espere por favor..." }, :class => "button orange submit-search" %>
+					
+				</div>
+				
+			</div>
+
+		</div>
     
-    <div class="text-center">
-        <% link_to "Reservar", '#', :class => "btn btn-success" %>
-        <%= submit_tag "Confirmar reserva", data: { disable_with: "Espere por favor..." }, :class => "btn btn-success" %>
-    </div>
+  </div>
 </div>
 <% end %>
