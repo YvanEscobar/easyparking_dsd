@@ -1,72 +1,75 @@
 
 <div class="container block-margin">
-  <div class="row">
-    <div class="col-md-6">
-      <% #image_tag("placeholder.png", :alt => "placeholder", :class => "featurette-image img-responsive center-block") %>
-      <%= image_tag @parking.photo.url(:medium), :alt => @parking.name, :class => "featurette-image img-responsive center-block" %>
-    </div>
-    <div class="col-md-5 col-md-offset-1">
-      <h1><%= @parking.name %></h1>
-      <div class="price">S/. <%= @parking.price_per_hour %> la hora</div>
-      <p><%= @parking.description %></p>
-      <h3>Características:</h3>
-      <ul>
-      <% @parking.parking_features.each do |feature| %>
-        <li><%= feature.name %></li>
-      <% end %>
-      </ul>
-      <!--
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <select class="form-control">
-              <option>Elige tiempo</option>
-              <option>Hora</option>
-              <option>Día</option>
-              <option>Semana</option>
-              <option>Mes</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <select class="form-control">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      -->
-      <div class="text-center">
+  <div class="main">
+    
+    <article class="item clearfix">
+    	
+    	<h2 class="title"><%= @parking.name %></h2>
+    	
+    	<div id="gallery" class="gallery">
+    
+    		<div class="slideshow-container">
+    			<%= image_tag @parking.photo.url(:medium), :alt => @parking.name, :class => "featurette-image img-responsive center-block" %>
+    		</div>
+    
+    	</div>
+    
+    	<div class="extra">
+    		
+    		<b class="heading">Precio:</b>
+    		
+    		<span class="cost">S/. <%= @parking.price_per_hour %> por hora</span>
+    		
+    		<ul class="list type-1">
+          <% @parking.parking_features.each do |feature| %>
+            <li>
+              <span><%= feature.name %></span>
+            </li>
+          <% end %>
+        </ul>
+        
         <%= link_to "Reservar", booking_path(@parking), {class: "btn btn-primary btn-lg", role: "button"} %>
-      </div>
-    </div>
-  </div>
-  
-  <h3 class="text-center">Valoraciones y reseñas</h3>
-  <hr>
-  <div class="row">
-    <div class="col-md-2 col-md-offset-1">
-      <p>Calificación: <%= @avg_rating %>/5</p>
-    </div>
-    <div class="col-md-8">
-      <% @parking.reviews.each do |review| %>
-      <div class="row">
-        <div class="col-md-6 col-md-offset-6">
-          <div class="text-right"><%= review.created_at %></div>
+    		
+    	</div>
+    	
+    	<div class="entry-item">
+    		
+    		<h3 class="section-title">Descripción</h3>
+    		
+    		<p>
+    			<%= @parking.description %>
+    		</p>
+    		
+    	</div>
+    	
+    	<br><br>
+    	
+    	<div class="entry-item">
+    		
+    		<h3 class="section-title">Valoraciones y reseñas</h3>
+    		
+    		<div class="row">
+          <div class="col-md-4">
+            <p>Calificación: <%= @avg_rating %>/5</p>
+          </div>
+          <div class="col-md-8">
+            <% @parking.reviews.each do |review| %>
+            <div class="row">
+              <div class="col-md-6 col-md-offset-6">
+                <div class="text-right"><%= review.created_at %></div>
+              </div>
+            </div>
+            <h5><%= review.content %></h5>
+            <p><%= review.content %></p>
+            
+            <hr>
+            <% end %>
+          </div>
         </div>
-      </div>
-      <h5><%= review.content %></h5>
-      <p><%= review.content %></p>
-      
-      <hr>
-      <% end %>
-
-    </div>
-  </div>
+    		
+    	</div>
+    	
+    </article>
   
+  </div>
 </div>

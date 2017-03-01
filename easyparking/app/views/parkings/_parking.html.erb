@@ -1,11 +1,31 @@
+
 <div class="col-sm-6 col-md-4">
-  <div class="thumbnail">
-    <%= image_tag parking.photo.url(:medium), :alt => parking.name %>
-    <div class="caption">
-      <h3><%= parking.name %></h3>
-      <p><%= parking.description %></p>
-      <%= link_to "Ver detalles", params.has_key?(:time) ? parkdetailstime_path(parking, params[:time]) : parkdetails_path(parking), :class => "btn btn-primary" %>
-      <%= link_to "Reservar", params.has_key?(:time) ? bookingtime_path(parking, params[:time]) : booking_path(parking), :class => "btn btn-primary" %>
-    </div>
-  </div>
+  
+  <article>
+  	
+  	<a href="one-products.html" class="single-image picture video">
+  		<%= image_tag parking.photo.url(:medium), :alt => parking.name %>
+  	</a>
+  
+  	<div class="detailed">
+  		
+  		<h6 class="title-item">
+  			<a href="one-products.html"><%= parking.name %></a>
+  		</h6>
+  		
+  		<span class="price">$8.966</span>
+  		
+  		<div class="clear"></div>
+  		
+  		<div class="list-entry">
+  			<%= parking.description %>
+  		</div>
+  		
+  		<%= link_to "Detalles", params.has_key?(:time) ? parkdetailstime_path(parking, params[:time]) : parkdetails_path(parking), :class => "button orange" %>
+      <%= link_to "Reservar", params.has_key?(:time) ? bookingtime_path(parking, params[:time]) : booking_path(parking), :class => "button orange" %>
+  		
+  	</div>
+  	
+  </article>
+  
 </div>
