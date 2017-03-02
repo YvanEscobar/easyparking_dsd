@@ -22,7 +22,7 @@
   		</div>
   		
   		<%= link_to "Detalles", params.has_key?(:time) ? parkdetailstime_path(parking, params[:time]) : parkdetails_path(parking), :class => "button orange" %>
-      <%= link_to "Reservar", params.has_key?(:time) ? bookingtime_path(parking, params[:time]) : booking_path(parking), :class => "button orange" %>
+      <%= link_to "Reservar", :class => "button orange" %>
   		
   	</div>
   	

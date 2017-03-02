@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'home/tos'
   
   get 'parking', to: 'parking#index'
-  get 'parking/new', to: 'parking#new'
+  get 'parking/new'
   get 'parking/:district/:date/:time/:features', to: 'parking#index'
   post 'parking', to: 'parking#index'
   get 'parking/details/:id', to: 'parking#details', as: 'parkdetails'
