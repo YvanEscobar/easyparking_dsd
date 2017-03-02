@@ -2,8 +2,8 @@
 <div class="container block-margin">
 	<div class="main">
 		<div class="row">
-			<div class="col-lg-6 col-lg-offset-3 profile">
-				
+			
+			<div class="col-lg-4 profile">
 		 	  <div class="form-account">
         
         	<div class="form-heading">
@@ -41,63 +41,80 @@
         	</div>
         
         </div>
-		 	  
 			</div>
+			
+			<div class="col-lg-4 profile">
+			  <div class="form-account">
+			  	
+				 	<div class="form-heading">
+        		<h3>Mis reservas</h3>
+        	</div>
+        	
+        	<div class="form-entry clearfix">
+						<table class="table table-striped">
+							<thead>
+			            <th>Estacionamiento</th>
+			            <th>Fecha/hora</th>
+			            <th>Espacios</th>
+			            <th>Horas</th>
+		        	</thead>
+		        	<tbody>
+		        		<% @user.bookings.each do |booking| %>
+		        		<tr>
+			        		<td><%= booking.parking.name %></td>
+			        		<td><%= booking.start_date %></td>
+			        		<td><%= booking.spaces %></td>
+			        		<td><%= (((booking.end_date - booking.start_date).to_i)/3600).to_s %></td>
+		        		</tr>
+		        		<% end %>
+		        	</tbody>
+						</table>
+						
+						<div class="form-title"></div>
+						
+						<p>
+							<%= link_to "Nueva reserva", parking_path, class: "button orange btn-editar" %>
+						</p>
+					</div>
+					
+		 	  </div>
+			</div>
+		
+			<div class="col-lg-4 profile">
+			  <div class="form-account">
+			  	
+				 	<div class="form-heading">
+	      		<h3>Mis estacionamientos</h3>
+	      	</div>
+	      	
+	      	<div class="form-entry clearfix">
+						<table class="table table-striped">
+							<thead>
+			            <th>Nombre</th>
+			            <th>Desde</th>
+			            <th>Hasta</th>
+		        	</thead>
+		        	<tbody>
+		        		<% @user.parkings.each do |parking| %>
+		        		<tr>
+			        		<td><%= parking.name %></td>
+			        		<td><%= parking.start_date %></td>
+			        		<td><%= parking.end_date %></td>
+		        		</tr>
+		        		<% end %>
+		        	</tbody>
+						</table>
+						
+						<div class="form-title"></div>
+						
+						<p>
+							<%= link_to "Nuevo estacionamiento", parking_new_path, class: "button orange btn-editar" %>
+						</p>
+					</div>
+					
+		 	  </div>
+			</div>
+			
 		</div>
-	</div>
-	<div class="col-lg-6 profile">
-	  <div class="well">
-	 	<div class="panel-heading">
-   			 <h1 class="text-center">Mis reservas</h1>
-   		</div>
-		<table class="table table-striped">
-			<thead>
-	            <th>Estacionamiento</th>
-	            <th>Fecha/hora</th>
-	            <th>Espacios</th>
-	            <th>Horas</th>
-        	</thead>
-        	<tbody>
-        		<% @user.bookings.each do |booking| %>
-        		<tr>
-	        		<td><%= booking.parking.name %></td>
-	        		<td><%= booking.start_date %></td>
-	        		<td><%= booking.spaces %></td>
-	        		<td><%= (((booking.end_date - booking.start_date).to_i)/3600).to_s %></td>
-        		</tr>
-        		<% end %>
-        	</tbody>
-		</table>
-		<div class="form-group text-center">
-			<%= link_to "Nueva reserva", parking_path, class: "btn btn-success pull-right btn-editar" %>    
-		</div>
- 	  </div>
-	</div>
-
-	<div class="col-lg-6 profile">
-	  <div class="well">
-	 	<div class="panel-heading">
-   			 <h1 class="text-center">Mis estacionamientos</h1>
-   		</div>
-		<table class="table table-striped">
-			<thead>
-	            <th>Nombre</th>
-	            <th>Desde</th>
-	            <th>Hasta</th>
-        	</thead>
-        	<tbody>
-        		<% @user.parkings.each do |parking| %>
-        		<tr>
-	        		<td><%= parking.name %></td>
-	        		<td><%= parking.start_date %></td>
-	        		<td><%= parking.end_date %></td>
-        		</tr>
-        		<% end %>
-        	</tbody>
-		</table>
-		<div class="form-group text-center">
-			<%= link_to "Nuevo estacionamiento", parking_new_path, class: "btn btn-success pull-right btn-editar" %>    
-		</div>
- 	  </div>
 	</div>
 </div>
